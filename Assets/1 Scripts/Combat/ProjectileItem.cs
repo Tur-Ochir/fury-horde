@@ -15,5 +15,5 @@ public class ProjectileItem : ScriptableObject
     
     [Header("Model")]
     public GameObject drawProjectileModel;
-    public GameObject releaseProjectileModel;
+    public Arrow releaseProjectileModel;
 }

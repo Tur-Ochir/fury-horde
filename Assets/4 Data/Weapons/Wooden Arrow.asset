@@ -15,7 +15,7 @@ MonoBehaviour:
   forwardVelocity: 2200
   upwardVelocity: 0
   ammoPass: 0.01
-  physicalDamage: 0
+  physicalDamage: 50
   fireDamage: 0
   drawProjectileModel: {fileID: 0}
-  releaseProjectileModel: {fileID: 0}
+  releaseProjectileModel: {fileID: 7301375816147512469, guid: ee42760d368234b4cade2b77bd44b14f, type: 3}

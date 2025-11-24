@@ -39,7 +39,7 @@ public class PlayerInputManager : MonoBehaviour
 
         if (attackAction.WasReleasedThisFrame())
         {
-            player.playerCombat.Fire();
+            player.playerCombat.PerformWeaponBasedAction();
         }
     }
 }

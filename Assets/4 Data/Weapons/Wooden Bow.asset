@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f21f4246cac43d09034e57e8ee6266d, type: 3}
-  m_Name: Bow Arrow
+  m_Name: Wooden Bow
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
-  baseDamage: 0
-  currentProjectile: {fileID: 0}
+  baseDamage: 10
+  currentProjectile: {fileID: 11400000, guid: 232a84cdd5ff22b4abd261f1563f9ba9, type: 2}
   drawSounds: []
   releaseSounds: []
