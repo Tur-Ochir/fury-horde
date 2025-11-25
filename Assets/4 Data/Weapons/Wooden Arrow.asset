@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bb7279c0a4ae0ac4c9957404f61de, type: 3}
   m_Name: Wooden Arrow
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileItem
-  forwardVelocity: 2200
+  forwardVelocity: 220
   upwardVelocity: 0
   ammoPass: 0.01
   physicalDamage: 50
   fireDamage: 0
-  drawProjectileModel: {fileID: 0}
+  drawProjectileModel: {fileID: 3091636253456380121, guid: e260dc4b19f22d644a9873056a1e8885, type: 3}
   releaseProjectileModel: {fileID: 7301375816147512469, guid: ee42760d368234b4cade2b77bd44b14f, type: 3}

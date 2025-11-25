@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 349802162}
   - component: {fileID: 349802161}
   - component: {fileID: 349802160}
+  - component: {fileID: 349802163}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -609,6 +610,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349802163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349802159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e7ae459dd2ce3f44686dd02eccca0bae, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1048,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1040,7 +1073,7 @@ MonoBehaviour:
   m_Shape:
     rid: 8184490160419242186
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 78
+  m_UnmodifiedMeshVersion: 4357
   m_Size: {x: 1, y: 4, z: 5}
   m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
@@ -1261,7 +1294,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1189557894}
-  m_VersionIndex: 78
+  m_VersionIndex: 4357
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1557,9 +1590,11 @@ GameObject:
   - component: {fileID: 1248004521}
   - component: {fileID: 1248004520}
   - component: {fileID: 1248004523}
+  - component: {fileID: 1248004524}
+  - component: {fileID: 1248004525}
+  - component: {fileID: 1248004526}
   - component: {fileID: 1248004519}
   - component: {fileID: 1248004518}
-  - component: {fileID: 1248004524}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1678,6 +1713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a696175baa1a694c8e90f65f3b73faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  health: {fileID: 0}
+  characterEffectManager: {fileID: 0}
+  isDead: 0
   playerInput: {fileID: 0}
   playerMovement: {fileID: 0}
   playerCombat: {fileID: 0}
@@ -1709,6 +1747,34 @@ MonoBehaviour:
   player: {fileID: 0}
   currentWeaponManager: {fileID: 1476298959}
   currentWeaponItem: {fileID: 11400000, guid: 366abb69876cb434584b1051c8613853, type: 2}
+  currentDrawProjectileModel: {fileID: 0}
+--- !u!114 &1248004525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248004516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bb78de48944f1e8ed97fc78c0e52d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterEffectManager
+  bloodSplatterVFX: {fileID: 0}
+  takeDamageEffect: {fileID: 0}
+--- !u!114 &1248004526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248004516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746b3aaccfed4e5bb39a2c48d720218e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 100
 --- !u!4 &1252119720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1512316738315180758, guid: a0bbcd162cd42be44b508da65da10ebd, type: 3}
@@ -1977,10 +2043,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1541688548}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1541688545}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1541688543}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1541688542}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1541688549}
   m_SourcePrefab: {fileID: 100100000, guid: abd41293339154b4ba8f1a1a74bbc876, type: 3}
 --- !u!1 &1541688541 stripped
 GameObject:
@@ -2021,6 +2096,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+--- !u!114 &1541688545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541688541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bb78de48944f1e8ed97fc78c0e52d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterEffectManager
+  bloodSplatterVFX: {fileID: 167524, guid: fdac75e990da47649b31f10049c400b0, type: 3}
+  takeDamageEffect: {fileID: 11400000, guid: cc316d2741a3b2646a692d980d00976f, type: 2}
+--- !u!114 &1541688548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541688541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99e2016637645cdb688b1d1e347c366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AICharacterManager
+  health: {fileID: 0}
+  characterEffectManager: {fileID: 0}
+  isDead: 0
+  agent: {fileID: 0}
+  player: {fileID: 1248004517}
+--- !u!195 &1541688549
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541688541}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1577775841
 GameObject:
   m_ObjectHideFlags: 0

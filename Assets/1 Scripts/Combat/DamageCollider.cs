@@ -12,9 +12,16 @@ public class DamageCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Health health))
+        if (other.TryGetComponent(out CharacterManager character))
         {
-            health.TakeDamage(physicalDamage);
+            contactPoint = other.ClosestPointOnBounds(transform.position);
+            TakeDamageEffect takeDamageEffect = character.characterEffectManager.takeDamageEffect; //GET DAMAGE EFFECT
+            takeDamageEffect.physicalDamage = physicalDamage;
+            takeDamageEffect.contactPoint = contactPoint;
+
+            takeDamageEffect.ProcessEffect(character);
         }
+        
+        // Destroy(gameObject);
     }
 }

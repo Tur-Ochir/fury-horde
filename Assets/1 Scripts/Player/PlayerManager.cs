@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : CharacterManager
 {
     [HideInInspector] public PlayerInputManager playerInput;
     [HideInInspector] public PlayerMovement playerMovement;
     [HideInInspector] public PlayerCombatManager playerCombat;
     
     public Transform camTransform;
-    void Awake()
+    protected virtual void Awake()
     {
+        base.Awake();
         playerInput = GetComponent<PlayerInputManager>();
         playerMovement = GetComponent<PlayerMovement>();
         playerCombat = GetComponent<PlayerCombatManager>();

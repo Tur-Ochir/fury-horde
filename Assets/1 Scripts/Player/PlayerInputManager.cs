@@ -11,9 +11,6 @@ public class PlayerInputManager : MonoBehaviour
     private InputAction interactAction;
     private InputAction attackAction;
     private Vector2 moveInput;
-
-    
-
     void Awake()
     {
         player = GetComponent<PlayerManager>();
@@ -35,7 +32,12 @@ public class PlayerInputManager : MonoBehaviour
     void Update()
     {
         moveInput = moveAction.ReadValue<Vector2>();
-        player.playerMovement.Move(moveInput);
+            player.playerMovement.Move(moveInput);
+
+        if (attackAction.WasPressedThisFrame())
+        {
+            player.playerCombat.StartWeaponBasedAction();
+        }
 
         if (attackAction.WasReleasedThisFrame())
         {

@@ -9,4 +9,8 @@ public class WeaponItem : ScriptableObject
     {
         
     }
+    public virtual void StartToPerformAction(PlayerManager actionPerformer)
+    {
+        
+    }
 }

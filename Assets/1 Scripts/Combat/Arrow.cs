@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 public class Arrow : MonoBehaviour
@@ -10,5 +11,10 @@ public class Arrow : MonoBehaviour
     {
         damageCollider.physicalDamage = projectile.physicalDamage;
         damageCollider.fireDamage = projectile.fireDamage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        rb.isKinematic = true;
     }
 }
