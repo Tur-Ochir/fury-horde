@@ -32,7 +32,7 @@ public class PlayerInputManager : MonoBehaviour
     void Update()
     {
         moveInput = moveAction.ReadValue<Vector2>();
-            player.playerMovement.Move(moveInput);
+        player.playerMovement.Move(moveInput);
 
         if (attackAction.WasPressedThisFrame())
         {

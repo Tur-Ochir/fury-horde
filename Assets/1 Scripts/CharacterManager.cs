@@ -13,4 +13,6 @@ public class CharacterManager : MonoBehaviour
         characterEffectManager = GetComponent<CharacterEffectManager>();
         health = GetComponent<Health>();
     }
+    protected virtual void Start(){}
+    protected virtual void Update(){}
 }

@@ -34,6 +34,7 @@ public class TakeDamageEffect : InstantCharacterEffect
         //PLAY A DAMAGE ANIMATION
         //PLAY A SOUND FX
         PlayDamageVFX(character);
+        character.characterEffectManager.HitEffect();
     }
 
     private void CalculateDamage(CharacterManager character)

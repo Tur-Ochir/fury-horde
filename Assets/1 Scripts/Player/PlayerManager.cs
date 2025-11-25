@@ -16,10 +16,4 @@ public class PlayerManager : CharacterManager
         
         camTransform = Camera.main.transform;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -16,5 +16,6 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         rb.isKinematic = true;
+        transform.SetParent(null);
     }
 }
