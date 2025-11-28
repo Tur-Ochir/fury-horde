@@ -6,7 +6,12 @@ public class Arrow : MonoBehaviour
 {
     public DamageCollider damageCollider;
     public Rigidbody rb;
-    
+
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     public void Initialize(ProjectileItem projectile)
     {
         damageCollider.physicalDamage = projectile.physicalDamage;
@@ -16,6 +21,6 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         rb.isKinematic = true;
-        transform.SetParent(null);
+        // transform.SetParent(null);
     }
 }

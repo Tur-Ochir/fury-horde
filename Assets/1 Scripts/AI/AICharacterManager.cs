@@ -15,7 +15,7 @@ public class AICharacterManager : CharacterManager
 
     protected override void OnEnable()
     {
-        base.OnEnable();
+        base.OnEnable();    
         OnDeath += Die;
     }
     void Die()

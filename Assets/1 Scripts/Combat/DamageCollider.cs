@@ -12,7 +12,8 @@ public class DamageCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out CharacterManager character))
+        Debug.Log($"DAMAGE COLLIDER TRIGGERED {other.transform.root.name}");
+        if (other.transform.root.TryGetComponent(out CharacterManager character))
         {
             contactPoint = other.ClosestPointOnBounds(transform.position);
             TakeDamageEffect takeDamageEffect = character.characterEffectManager.takeDamageEffect; //GET DAMAGE EFFECT
@@ -20,8 +21,8 @@ public class DamageCollider : MonoBehaviour
             takeDamageEffect.contactPoint = contactPoint;
 
             takeDamageEffect.ProcessEffect(character);
+            // Destroy(gameObject);
         }
         
-        // Destroy(gameObject);
     }
 }

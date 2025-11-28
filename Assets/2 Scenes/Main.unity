@@ -1321,6 +1321,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &963473889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963473891}
+  - component: {fileID: 963473890}
+  m_Layer: 0
+  m_Name: Player Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &963473890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963473889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 108aad5c4256867449293d0df687cc54, type: 2}
+--- !u!4 &963473891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963473889}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021712384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,11 +1950,12 @@ GameObject:
   - component: {fileID: 1248004520}
   - component: {fileID: 1248004523}
   - component: {fileID: 1248004524}
-  - component: {fileID: 1248004525}
+  - component: {fileID: 1248004529}
   - component: {fileID: 1248004526}
   - component: {fileID: 1248004519}
   - component: {fileID: 1248004518}
   - component: {fileID: 1248004527}
+  - component: {fileID: 1248004528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2063,23 +2113,6 @@ MonoBehaviour:
   currentWeaponItem: {fileID: 11400000, guid: 366abb69876cb434584b1051c8613853, type: 2}
   currentDrawProjectileModel: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &1248004525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248004516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2bb78de48944f1e8ed97fc78c0e52d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterEffectManager
-  bloodSplatterVFX: {fileID: 167524, guid: fdac75e990da47649b31f10049c400b0, type: 3}
-  deathVFX: {fileID: 0}
-  audioSource: {fileID: 0}
-  getDamageSound: {fileID: 0}
-  takeDamageEffect: {fileID: 11400000, guid: cc316d2741a3b2646a692d980d00976f, type: 2}
 --- !u!114 &1248004526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,6 +2224,46 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1248004528
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248004516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1389ef91ac028548b3283330184da85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1248004529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248004516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbe72198bc341c0b43862d284aa5eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEffectManager
+  bloodSplatterVFX: {fileID: 167524, guid: fdac75e990da47649b31f10049c400b0, type: 3}
+  deathVFX: {fileID: 0}
+  audioSource: {fileID: 0}
+  getDamageSound: {fileID: 0}
+  takeDamageEffect: {fileID: 11400000, guid: 54a3fd778834ef042af57c7c417285f2, type: 2}
+  playerVolume: {fileID: 963473890}
 --- !u!1 &1302910057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3501,7 @@ SceneRoots:
   - {fileID: 1711098727}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 963473891}
   - {fileID: 349802162}
   - {fileID: 1021712390}
   - {fileID: 1248004517}

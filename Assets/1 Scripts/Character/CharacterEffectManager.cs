@@ -18,7 +18,7 @@ public class CharacterEffectManager : MonoBehaviour
     private SkinnedMeshRenderer meshRenderer;
     private Color color;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         character = GetComponent<CharacterManager>();
         meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -27,14 +27,14 @@ public class CharacterEffectManager : MonoBehaviour
         color = meshRenderer.material.color;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         character.OnDeath += OnDeath;
     }
 
-    private void OnDeath()
+    protected virtual void OnDeath()
     {
-        if (deathVFX   != null)
+        if (deathVFX != null)
         {
             Instantiate(deathVFX, transform.position, Quaternion.identity);
         }
@@ -51,7 +51,7 @@ public class CharacterEffectManager : MonoBehaviour
             GameObject bloodSplatter = Instantiate(WorldCharacterEffectManager.Instance.BloodSplatterVFX, contactPoint, Quaternion.identity);
         }
     }
-    public void HitEffect()
+    public virtual void GetDamageEffect()
     {
         var sequence = DOTween.Sequence();
         sequence.Append(meshRenderer.material.DOColor(Color.white, 0.15f));

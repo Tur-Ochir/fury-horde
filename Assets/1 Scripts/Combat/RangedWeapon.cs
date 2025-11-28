@@ -24,7 +24,8 @@ public class RangedWeapon : WeaponItem
             hitPoint = hit.point;
         }
         
-        Vector3 direction = hitPoint != Vector3.zero ? (hitPoint - actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position).normalized : actionPerformer.camTransform.forward;
+        Vector3 direction = hitPoint != Vector3.zero ? (hitPoint - actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position) : actionPerformer.camTransform.forward;
+        direction.Normalize();
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         
         var a = Instantiate(currentProjectile.releaseProjectileModel, actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position, lookRotation);
