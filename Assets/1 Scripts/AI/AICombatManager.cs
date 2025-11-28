@@ -14,6 +14,14 @@ public class AICombatManager : CharacterCombatManager
         aiManager = GetComponent<AICharacterManager>();
     }
 
+    private void Start()
+    {
+        if (currentWeaponManager != null && currentWeaponItem != null)
+        {
+            currentWeaponManager.SetWeaponDamage(currentWeaponItem);
+        }
+    }
+
     private void Update()
     {
         if (aiManager.currentTarget == null) return;

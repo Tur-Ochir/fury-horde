@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ae99a706b24c80825c8db695c7ad29, type: 3}
   m_Name: Wooden Sword
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeapon
-  baseDamage: 25
+  physicalDamage: 24
+  fireDamage: 0
   attack01: Main_Attack_01
   attack02: Main_Attack_02
   attack03: Main_Attack_03

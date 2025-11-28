@@ -2,8 +2,9 @@
 
 public class WeaponItem : ScriptableObject
 {
-    [Header("Weapon Base Damage")]
-    public int baseDamage = 0;
+    [Header("Weapon Damage")]
+    public int physicalDamage = 0;
+    public int fireDamage = 0;
     
     public virtual void AttemptToPerformAction(CharacterManager actionPerformer)
     {
