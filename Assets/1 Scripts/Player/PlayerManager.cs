@@ -5,8 +5,6 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public PlayerInputManager playerInput;
     [HideInInspector] public PlayerMovement playerMovement;
     [HideInInspector] public PlayerCombatManager playerCombat;
-    
-    public Transform camTransform;
     protected virtual void Awake()
     {
         base.Awake();

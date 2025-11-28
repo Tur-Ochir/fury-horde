@@ -15,4 +15,5 @@ MonoBehaviour:
   baseDamage: 10
   currentProjectile: {fileID: 11400000, guid: 232a84cdd5ff22b4abd261f1563f9ba9, type: 2}
   drawSounds: []
-  releaseSounds: []
+  releaseSounds:
+  - {fileID: 8300000, guid: b643d06695630c84788b82669a46b8a7, type: 3}

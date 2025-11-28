@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         
         moveDirection = moveInput.x * player.camTransform.right + moveInput.y * player.camTransform.forward;
         moveDirection.Normalize();
-        controller.Move(moveDirection * speed * Time.fixedDeltaTime);
+        controller.SimpleMove(moveDirection * speed);
     }
 
     public void Rotate(Vector3 direction)

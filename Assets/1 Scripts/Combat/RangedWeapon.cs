@@ -8,27 +8,45 @@ public class RangedWeapon : WeaponItem
     [Header("RangedSFX")]
     public AudioClip[] drawSounds;
     public AudioClip[] releaseSounds;
-    public override void AttemptToPerformAction(PlayerManager actionPerformer)
+    public override void AttemptToPerformAction(CharacterManager actionPerformer)
     {
         //NEED FIRE DIRECTION
         //NEED POWER 
-        if (actionPerformer.playerCombat.currentDrawProjectileModel != null)
+        if (actionPerformer.characterCombatManager.currentDrawProjectileModel != null)
         {
-            Destroy(actionPerformer.playerCombat.currentDrawProjectileModel);
+            Destroy(actionPerformer.characterCombatManager.currentDrawProjectileModel);
+        }
+
+        Vector3 hitPoint = Vector3.zero;
+        if (Physics.Raycast(actionPerformer.camTransform.position, actionPerformer.camTransform.forward,
+                out RaycastHit hit, 999f))
+        {
+            hitPoint = hit.point;
         }
         
-        var a = Instantiate(currentProjectile.releaseProjectileModel, actionPerformer.playerCombat.currentWeaponManager.spawnPoint.position, Quaternion.identity);
-        a.transform.SetParent(actionPerformer.playerCombat.currentWeaponManager.spawnPoint);
-        a.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        Vector3 direction = hitPoint != Vector3.zero ? (hitPoint - actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position).normalized : actionPerformer.camTransform.forward;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        
+        var a = Instantiate(currentProjectile.releaseProjectileModel, actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position, lookRotation);
+        // a.transform.SetParent(actionPerformer.playerCombat.currentWeaponManager.spawnPoint);
+        // a.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        
         a.Initialize(currentProjectile);
-        a.rb.AddForce(a.transform.forward * currentProjectile.forwardVelocity, ForceMode.VelocityChange);
+        a.rb.AddForce(direction * currentProjectile.forwardVelocity, ForceMode.VelocityChange);
+        
+        PlaySFX(actionPerformer);
     }
 
-    public override void StartToPerformAction(PlayerManager actionPerformer)
+    private void PlaySFX(CharacterManager actionPerformer)
     {
-        var a = Instantiate(currentProjectile.drawProjectileModel, actionPerformer.playerCombat.currentWeaponManager.spawnPoint.position, Quaternion.identity);
-        a.transform.SetParent(actionPerformer.playerCombat.currentWeaponManager.spawnPoint);
+        actionPerformer.characterEffectManager.PlaySFX(releaseSounds[Random.Range(0, releaseSounds.Length)]);
+    }
+
+    public override void StartToPerformAction(CharacterManager actionPerformer)
+    {
+        var a = Instantiate(currentProjectile.drawProjectileModel, actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position, Quaternion.identity);
+        a.transform.SetParent(actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint);
         a.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
-        actionPerformer.playerCombat.currentDrawProjectileModel = a;
+        actionPerformer.characterCombatManager.currentDrawProjectileModel = a;
     }
 }

@@ -1,14 +1,28 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
-public class AICombatManager : MonoBehaviour
+public class AICombatManager : CharacterCombatManager
 {
-    public WeaponItem currentWeaponItem;
-    
-    public void PerformWeaponBasedAction()
+    [HideInInspector] public AICharacterManager aiManager;
+    public float attackRange;
+    public float targetToDistance;
+
+    protected override void Awake()
     {
-        if (currentWeaponItem == null) return;
+        base.Awake();
+        aiManager = GetComponent<AICharacterManager>();
+    }
+
+    private void Update()
+    {
+        if (aiManager.currentTarget == null) return;
         
-        // currentWeaponItem.AttemptToPerformAction(player);
+        targetToDistance = Vector3.Distance(aiManager.currentTarget.position, transform.position);
+        if (targetToDistance < attackRange)
+        {
+            PerformWeaponBasedAction();
+            //NEED ATTACK RATE
+        }
     }
 }

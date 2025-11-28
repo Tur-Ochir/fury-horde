@@ -5,11 +5,11 @@ public class WeaponItem : ScriptableObject
     [Header("Weapon Base Damage")]
     public int baseDamage = 0;
     
-    public virtual void AttemptToPerformAction(PlayerManager actionPerformer)
+    public virtual void AttemptToPerformAction(CharacterManager actionPerformer)
     {
         
     }
-    public virtual void StartToPerformAction(PlayerManager actionPerformer)
+    public virtual void StartToPerformAction(CharacterManager actionPerformer)
     {
         
     }
