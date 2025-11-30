@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class AICharacterAnimationManager : CharacterAnimationManager
 {
@@ -8,5 +9,10 @@ public class AICharacterAnimationManager : CharacterAnimationManager
     {
         base.Awake();
         aiManager = GetComponent<AICharacterManager>();
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("Speed", aiManager.agent.velocity.magnitude);
     }
 }

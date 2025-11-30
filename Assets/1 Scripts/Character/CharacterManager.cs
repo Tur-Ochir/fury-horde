@@ -12,6 +12,8 @@ public class CharacterManager : MonoBehaviour
     public Transform camTransform;
     public bool isDead;
     public bool isPerformingAction;
+    public bool canMove = true;
+    public bool canRotate = true;
     
     public UnityAction OnDeath;
 

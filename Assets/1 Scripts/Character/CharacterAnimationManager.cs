@@ -14,7 +14,7 @@ public class CharacterAnimationManager : MonoBehaviour
         }
     }
     
-    public virtual void PlayerTargetAttackActionAnimation(string targetAnimation, bool isPerformingAction, bool applyRootMotion = true, bool canRotate = false, bool canMove = false)
+    public virtual void PlayTargetAttackActionAnimation(string targetAnimation, bool isPerformingAction, bool applyRootMotion = true, bool canRotate = false, bool canMove = false)
     {
         character.isPerformingAction = isPerformingAction;
         animator.CrossFade(targetAnimation, 0.2f);

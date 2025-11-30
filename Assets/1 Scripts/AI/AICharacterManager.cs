@@ -23,7 +23,7 @@ public class AICharacterManager : CharacterManager
         agent.enabled = false;
         Destroy(gameObject, 0.1f);
     }
-    private void Update()
+    protected override void Update()
     {
         if (!agent.enabled) return;
         if (isPerformingAction) return;
@@ -38,6 +38,8 @@ public class AICharacterManager : CharacterManager
 
     private void Move(Vector3 target)
     {
+        if (!canMove) return;
+        
         agent.SetDestination(target);
     }
 }

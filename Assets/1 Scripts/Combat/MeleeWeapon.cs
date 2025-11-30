@@ -18,7 +18,7 @@ public class MeleeWeapon : WeaponItem
 
     private void PerformAttack(CharacterManager actionPerformer)
     {
-        actionPerformer.characterAnimationManager.PlayerTargetAttackActionAnimation(attack01, true);
+        actionPerformer.characterAnimationManager.PlayTargetAttackActionAnimation(attack01, true);
     }
 
     private void PlaySFX(CharacterManager actionPerformer)

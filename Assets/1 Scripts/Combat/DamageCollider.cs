@@ -12,7 +12,7 @@ public class DamageCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"DAMAGE COLLIDER TRIGGERED {other.transform.root.name}");
+        // Debug.Log($"DAMAGE COLLIDER TRIGGERED {other.transform.root.name}");
         if (other.transform.root.TryGetComponent(out CharacterManager character))
         {
             contactPoint = other.ClosestPointOnBounds(transform.position);

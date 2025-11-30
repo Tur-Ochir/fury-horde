@@ -23,8 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector2 moveInput)
     {
-        moveInput.Normalize();
+        if (!player.canMove) return;
         
+        moveInput.Normalize();
         moveDirection = moveInput.x * player.camTransform.right + moveInput.y * player.camTransform.forward;
         moveDirection.Normalize();
         controller.SimpleMove(moveDirection * speed);
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void RotateToCameraDirection()
     {
+        if (!player.canRotate) return;
+        
         Vector3 cameraForward = player.camTransform.forward;
         cameraForward.y = 0f;
         cameraForward.Normalize();

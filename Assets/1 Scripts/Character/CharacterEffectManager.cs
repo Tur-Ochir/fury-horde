@@ -54,8 +54,8 @@ public class CharacterEffectManager : MonoBehaviour
     public virtual void GetDamageEffect()
     {
         var sequence = DOTween.Sequence();
-        sequence.Append(meshRenderer.material.DOColor(Color.white, 0.15f));
-        sequence.Append(meshRenderer.material.DOColor(color, 0.1f));
+        sequence.Append(meshRenderer.material.DOColor(Color.white, 0.05f));
+        sequence.Append(meshRenderer.material.DOColor(color, 0.15f));
     }
     public void PlaySFX(AudioClip clip)
     {
