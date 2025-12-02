@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f21f4246cac43d09034e57e8ee6266d, type: 3}
   m_Name: Wooden Bow
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
-  baseDamage: 10
+  physicalDamage: 0
+  fireDamage: 0
   currentProjectile: {fileID: 11400000, guid: 232a84cdd5ff22b4abd261f1563f9ba9, type: 2}
+  maxPower: 1
+  minPower: 2
+  speed: 0.5
   drawSounds: []
   releaseSounds:
   - {fileID: 8300000, guid: b643d06695630c84788b82669a46b8a7, type: 3}
