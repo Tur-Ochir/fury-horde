@@ -124,9 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aeef961751fa024a8cdb861ffb3b983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageCollider
+  canDamage: 1
   physicalDamage: 0
   fireDamage: 0
   damageCollider: {fileID: 1401207328137161040}
+  rb: {fileID: 0}
 --- !u!1 &6232638203933476257
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +256,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.05
+  m_BaseOffset: -0.15
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!82 &6469794848123518611
@@ -370,6 +372,11 @@ MonoBehaviour:
   currentWeaponManager: {fileID: 6901266953797923714}
   currentWeaponItem: {fileID: 11400000, guid: bd52e055f8e98724aa09daef5d1e95bf, type: 2}
   currentDrawProjectileModel: {fileID: 0}
+  currentPowerOfProjectile: 0
+  speedOfProjectile: 0
+  maxPowerOfProjectile: 0
+  minPowerOfProjectile: 0
+  drawingProjectile: 0
   aiManager: {fileID: 0}
   attackRange: 2
   targetToDistance: 0

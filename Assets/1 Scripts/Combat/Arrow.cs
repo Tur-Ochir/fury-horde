@@ -12,16 +12,17 @@ public class Arrow : MonoBehaviour
         Destroy(gameObject, 5f);
     }
 
-    public void Initialize(ProjectileItem projectile)
+    public void Initialize(ProjectileItem projectile, float power)
     {
-        damageCollider.physicalDamage = projectile.physicalDamage;
-        damageCollider.fireDamage = projectile.fireDamage;
+        damageCollider.physicalDamage = projectile.physicalDamage * power;
+        damageCollider.fireDamage = projectile.fireDamage * power;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        rb.isKinematic = true;
-        damageCollider.enabled = false;
+        // rb.isKinematic = true;
+        // damageCollider.canDamage = false;
+        // damageCollider.enabled = false;
         // transform.SetParent(null);
     }
 }

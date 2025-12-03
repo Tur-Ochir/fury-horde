@@ -46,4 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
         Rotate(cameraForward);
     }
+
+    public float GetSpeed()
+    {
+        return controller.velocity.magnitude;
+    }
 }

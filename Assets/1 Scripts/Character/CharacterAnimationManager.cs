@@ -13,6 +13,7 @@ public class CharacterAnimationManager : MonoBehaviour
             animator = GetComponent<Animator>();
         }
     }
+    protected virtual void Update(){}
     
     public virtual void PlayTargetAttackActionAnimation(string targetAnimation, bool isPerformingAction, bool applyRootMotion = true, bool canRotate = false, bool canMove = false)
     {

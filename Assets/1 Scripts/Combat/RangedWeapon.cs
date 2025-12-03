@@ -45,9 +45,9 @@ public class RangedWeapon : WeaponItem
         var a = Instantiate(currentProjectile.releaseProjectileModel, actionPerformer.characterCombatManager.currentWeaponManager.spawnPoint.position, lookRotation);
         // a.transform.SetParent(actionPerformer.playerCombat.currentWeaponManager.spawnPoint);
         // a.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
-        
-        a.Initialize(currentProjectile);
-        Vector3 force = direction * currentProjectile.forwardVelocity * actionPerformer.characterCombatManager.currentPowerOfProjectile;
+        var power = actionPerformer.characterCombatManager.currentPowerOfProjectile;
+        a.Initialize(currentProjectile, power);
+        Vector3 force = direction * currentProjectile.forwardVelocity * power;
         a.rb.AddForce(force, ForceMode.VelocityChange);
         
         PlaySFX(actionPerformer);

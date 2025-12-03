@@ -23,7 +23,7 @@ public class CharacterCombatManager : MonoBehaviour
         if (drawingProjectile)
         {
             currentPowerOfProjectile += speedOfProjectile * Time.fixedDeltaTime;
-            Mathf.Clamp(currentPowerOfProjectile, minPowerOfProjectile, maxPowerOfProjectile);
+            currentPowerOfProjectile = Mathf.Clamp(currentPowerOfProjectile, minPowerOfProjectile, maxPowerOfProjectile);
         }
     }
     public virtual void PerformWeaponBasedAction()

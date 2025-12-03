@@ -15,8 +15,8 @@ MonoBehaviour:
   physicalDamage: 0
   fireDamage: 0
   currentProjectile: {fileID: 11400000, guid: 232a84cdd5ff22b4abd261f1563f9ba9, type: 2}
-  maxPower: 1
-  minPower: 2
+  maxPower: 2
+  minPower: 1
   speed: 0.5
   drawSounds: []
   releaseSounds:
