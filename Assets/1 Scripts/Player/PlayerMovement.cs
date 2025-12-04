@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector] public PlayerManager player;
     public float speed = 4;
+    public float brakingSpeed = 4;
     public float rotationSpeed = 8;
     public bool autoMoveForward;
     
@@ -29,23 +30,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!player.canMove) return;
         if (moveInput.magnitude <= 0.01f) return;
-        if (autoMoveForward) return;
+        if (moveInput.y >= 0) return;
+        // if (autoMoveForward) return;
         
         moveInput.Normalize();
         moveDirection = moveInput.y * transform.forward;
         moveDirection.Normalize();
-        controller.SimpleMove(moveDirection * speed);
+        controller.SimpleMove(moveDirection * brakingSpeed);
     }
 
     public void Rotate(Vector2 moveInput)
     {
-        // Only rotate if x axis has input
         if (Mathf.Abs(moveInput.x) > 0.01f)
         {
             float turnAmount = moveInput.x * rotationSpeed * Time.deltaTime;
-
-            // Rotate around Y
-            // Debug.Log($"turnAmountL: {turnAmount}");
+            
             transform.Rotate(0f, turnAmount, 0f);   
         }
     }
