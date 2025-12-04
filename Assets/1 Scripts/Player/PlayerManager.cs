@@ -30,7 +30,5 @@ public class PlayerManager : CharacterManager
         canRotate = false;
         
         CanvasManager.Instance.YouDied();
-        
-        
     }
 }

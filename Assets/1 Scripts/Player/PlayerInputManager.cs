@@ -25,7 +25,8 @@ public class PlayerInputManager : MonoBehaviour
         interactAction = playerInput.actions["Interact"];
         attackAction = playerInput.actions["Attack"];
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         playerInput.actions.Disable();
     }
     
@@ -33,6 +34,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();
         player.playerMovement.Move(moveInput);
+        player.playerMovement.Rotate(moveInput);
 
         if (attackAction.WasPressedThisFrame())
         {

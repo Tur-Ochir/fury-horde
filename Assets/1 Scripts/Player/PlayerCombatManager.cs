@@ -16,14 +16,18 @@ public class PlayerCombatManager : CharacterCombatManager
     {
         base.StartWeaponBasedAction();
         
-        //TODO CALCULATE DURATION
-        
-        CanvasManager.Instance.StartCircleProgress(1f);
+        float t = GetTimeToMaxPower();
+        CanvasManager.Instance.StartCircleProgress(t);
     }
 
     public override void PerformWeaponBasedAction()
     {
         base.PerformWeaponBasedAction();
+        
         CanvasManager.Instance.StopCircleProgress();
+    }
+    public float GetTimeToMaxPower()
+    {
+        return (maxPowerOfProjectile - minPowerOfProjectile) / speedOfProjectile;
     }
 }

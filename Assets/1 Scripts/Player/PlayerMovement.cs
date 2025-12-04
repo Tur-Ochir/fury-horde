@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public PlayerManager player;
     public float speed = 4;
     public float rotationSpeed = 8;
+    public bool autoMoveForward;
     
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
@@ -13,28 +14,40 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<PlayerManager>();
         controller = GetComponent<CharacterController>();
-        
     }
 
     private void Update()
     {
-        RotateToCameraDirection();
+        // RotateToCameraDirection();
+        if (autoMoveForward)
+        {
+            controller.SimpleMove(transform.forward * speed);
+        }
     }
 
     public void Move(Vector2 moveInput)
     {
         if (!player.canMove) return;
+        if (moveInput.magnitude <= 0.01f) return;
+        if (autoMoveForward) return;
         
         moveInput.Normalize();
-        moveDirection = moveInput.x * player.camTransform.right + moveInput.y * player.camTransform.forward;
+        moveDirection = moveInput.y * transform.forward;
         moveDirection.Normalize();
         controller.SimpleMove(moveDirection * speed);
     }
 
-    public void Rotate(Vector3 direction)
+    public void Rotate(Vector2 moveInput)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime *rotationSpeed);
+        // Only rotate if x axis has input
+        if (Mathf.Abs(moveInput.x) > 0.01f)
+        {
+            float turnAmount = moveInput.x * rotationSpeed * Time.deltaTime;
+
+            // Rotate around Y
+            // Debug.Log($"turnAmountL: {turnAmount}");
+            transform.Rotate(0f, turnAmount, 0f);   
+        }
     }
     public void RotateToCameraDirection()
     {
@@ -43,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 cameraForward = player.camTransform.forward;
         cameraForward.y = 0f;
         cameraForward.Normalize();
-
+    
         Rotate(cameraForward);
     }
 
